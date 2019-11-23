@@ -134,5 +134,73 @@ ENTRYPOINT FLASK_APP=/opt/source-code/app.py flash run
 
 `docker history docker-username/my-custom-app`
 
+### ENTRYPOINT vs CMD
 
+#### Commands 
+
+`CMD command param1`
+
+`CMD sleep 5`
+
+`CMD bash`
+
+or 
+
+`CMD ["command", "param1"]`
+
+`CMD ["sleep", "5"]`
+
+`CMD ["bash"]`
+
+
+#### In entrypoint you can append instructions at run without rewriting them
+
+`ENTRYPOINT ["sleep"]`
+
+`docker run my-custom-app-sleeper 10`
+
+#### Its best to use both so it does not give an error with or without the needed params
+
+`ENTRYPOINT ["sleep"]`
+
+`CMD ["5"]`
+
+`docker run my-custom-app-sleeper 10`
+
+
+#### You can overwrite the original entrypoint
+
+`docker run --entrypoint new-image-name my-custom-app-sleeper 10`
+
+
+### Docker Network
+
+#### Types of network bridge - none - host
+
+Bridge is a privite internal network, all contanerss connect to this by defualt contaners and get and ip address, usualy in the 172.17.0.1 series and they can access each other with there ip, other then that you accesss is map ports.
+usualy only creates on interinal network.
+
+
+host takes out isolation, it uses the host network.
+
+#### If you wish to make muliple isolation
+
+`docker network create --driver bridge --subnet 182.18.0.0/16 custom-isolated-network`
+
+#### To list all networks
+
+`docker network ls`
+
+Can get network info on a container with docker inspect command
+
+### Docker file system
+- `/var/lib/docker/`
+
+  - aufs
+
+  - containers
+
+  - image
+
+  - volumes
 
