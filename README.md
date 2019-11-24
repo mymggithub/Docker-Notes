@@ -25,9 +25,21 @@ Installing docker has an easy way using the convient script with linux
 
 `docker run docker-username/file-name run-name`
 
+#### -Start a container again if stopped
+
+`docker start [provide name or ID]`
+
 #### -Stop a container
 
 `docker stop [provide name or ID]`
+
+#### -Force stop or Kill a container
+
+`docker kill [provide name or ID]`
+
+#### Kill all containers
+
+`docker kill $(docker ps -q)`
 
 #### -Remove a container
 
