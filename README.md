@@ -21,9 +21,9 @@ Installing docker has an easy way using the convient script with linux
 
 `docker ps -a`
 
-#### -Starts container first time
+#### -Starts container first time, --name is not required, but its to name a container
 
-`docker run docker-username/file-name run-name`
+`docker run --name run-name docker-username/file-name`
 
 #### -Start a container again if stopped
 
@@ -80,7 +80,7 @@ Installing docker has an easy way using the convient script with linux
 
 #### -Run Detach mode
 
-`docker run -d docker-username/file-name run-name`
+`docker run -d --name run-name docker-username/file-name`
 
 #### -Run Attach mode
 
@@ -92,19 +92,19 @@ Installing docker has an easy way using the convient script with linux
 
 #### -Run an older version :0.0
 
-`docker run docker-username/file-name:4.0 run-name`
+`docker run --name run-name docker-username/file-name:4.0`
 
 #### -Run STDIN -i interactive mode -t terminal
 
-`docker run -it docker-username/file-name run-name`
+`docker run -it --name run-name docker-username/file-name`
 
 #### -Run port mapping out-container:in-container
 
-`docker run -p 80:5000 docker-username/file-name run-name`
+`docker run -p 80:5000 --name run-name docker-username/file-name`
 
 #### -Run volume mapping -v /folder/folder/folder out:in
 
-`docker run -v /opt/datadir:/var/lib/mysql docker-username/file-name run-name`
+`docker run -v /opt/datadir:/var/lib/mysql -name run-name docker-username/file-name`
 
 #### -Container details
 
@@ -115,7 +115,7 @@ Installing docker has an easy way using the convient script with linux
 
 #### -Environment variables
 
-`docker run -e APP_COLOR=blue docker-username/file-name run-name`
+`docker run -e APP_COLOR=blue --name run-name docker-username/file-name`
 
 ### How to create an image
 Example for flask:
