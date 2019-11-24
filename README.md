@@ -159,7 +159,9 @@ ENTRYPOINT FLASK_APP=/opt/source-code/app.py flash run
 
 #### -Build the docker
 
-`docker build Dockerfile -t docker-username/my-custom-app`
+`docker build Dockerfile -t docker-username/my-custom-app` - this did not work for me like it said in the video
+
+`docker build -t docker-username/my-custom-app .` - Recomended
 
 #### -Push to public docker hub
 
