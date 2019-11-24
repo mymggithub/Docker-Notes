@@ -159,6 +159,8 @@ ENTRYPOINT FLASK_APP=/opt/source-code/app.py flash run
 - COPY - Copy source code (Read more about [ADD vs COPY](https://nickjanetakis.com/blog/docker-tip-2-the-difference-between-copy-and-add-in-a-dockerile))
 - ENTRYPOINT - Specify entrypoint, a command that will run when an image container
 
+Other: [WORKDIR](https://stackoverflow.com/questions/51066146/what-is-the-point-of-workdir-on-dockerfile)
+
 #### -Build the docker
 
 `docker-username/my-custom-app` is really whatever you want to put for a tag, you account on docker hub account is not needed for local storage.
