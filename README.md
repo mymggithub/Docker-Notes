@@ -159,6 +159,8 @@ ENTRYPOINT FLASK_APP=/opt/source-code/app.py flash run
 
 #### -Build the docker
 
+`docker-username/my-custom-app` is really whatever you want to put for a tag, you account on docker hub account is not needed for local storage.
+
 `docker build Dockerfile -t docker-username/my-custom-app` - this did not work for me like it said in the video
 
 `docker build -t docker-username/my-custom-app .` - Recomended
