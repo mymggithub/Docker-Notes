@@ -93,6 +93,8 @@ If you get errors like I did, I recomend using.
 
 `docker run -d --name run-name docker-username/file-name`
 
+[To Detach using commands](https://stackoverflow.com/questions/19688314/how-do-you-attach-and-detach-from-dockers-process)
+
 #### -Run and remove container after
 
 `docker run --rm docker-username/file-name`
