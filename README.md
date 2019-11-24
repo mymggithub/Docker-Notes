@@ -154,7 +154,7 @@ ENTRYPOINT FLASK_APP=/opt/source-code/app.py flash run
 
 - From - is another image
 - RUN - to install all dependencies
-- COPY - Copy source code
+- COPY - Copy source code (Read more about [ADD vs COPY](https://nickjanetakis.com/blog/docker-tip-2-the-difference-between-copy-and-add-in-a-dockerile))
 - ENTRYPOINT - Specify entrypoint, a command that will run when an image container
 
 #### -Build the docker
