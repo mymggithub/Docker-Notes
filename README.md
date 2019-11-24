@@ -5,6 +5,8 @@ Notes on docker written by Mark G
 
 [video 2](https://www.youtube.com/watch?v=JprTjTViaEA) 
 
+[dockerize python](https://runnable.com/docker/python/dockerize-your-python-application)
+
 Installing docker has an easy way using the convient script with linux
 
 #### Check the version
@@ -33,6 +35,10 @@ Installing docker has an easy way using the convient script with linux
 
 `docker stop [provide name or ID]`
 
+#### Stop all containers
+
+`docker ps -q -a | xargs docker stop`
+
 #### -Force stop or Kill a container
 
 `docker kill [provide name or ID]`
@@ -52,6 +58,11 @@ Installing docker has an easy way using the convient script with linux
 #### Remove exited containers
 
 `docker rm $(docker ps -a -f status=exited -q)`
+
+If you get errors like I did, I recomend using.
+
+`docker container prune`
+
 
 ### Images
 
@@ -82,6 +93,10 @@ Installing docker has an easy way using the convient script with linux
 
 `docker run -d --name run-name docker-username/file-name`
 
+#### -Run and remove container after
+
+`docker run -rm docker-username/file-name`
+
 #### -Run Attach mode
 
 `docker attach [provide name or ID]`
@@ -105,6 +120,10 @@ Installing docker has an easy way using the convient script with linux
 #### -Run volume mapping -v /folder/folder/folder out:in
 
 `docker run -v /opt/datadir:/var/lib/mysql -name run-name docker-username/file-name`
+
+another example
+
+`docker run -v "$PWD":/usr/src/widget_app python:3 python my_script.py`
 
 #### -Container details
 
