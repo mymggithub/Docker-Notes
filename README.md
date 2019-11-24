@@ -204,3 +204,241 @@ Can get network info on a container with docker inspect command
 
   - volumes
 
+#### Create volumes in /var/lib/docker/volumes folder
+
+`docker volume create data_volume`
+
+#### Volume mounting
+
+`docker run -v data_volume:/var/lib/mysql mysql`
+
+#### Mounts and creates volumes
+
+`docker run -v data_volume2:/var/lib/mysql mysql`
+
+#### Bindmount volume
+
+`docker run -v /data/mysql:/var/lib/mysql mysql`
+
+#### Using -v is old, new and prefered way is --mount
+
+`docker run --mount type=bind, source=/data/mysql, target=/var/lib/mysql mysql`
+
+- Storage drivers
+
+  - AUFS
+    
+  - ZFS
+    
+  - BTRFS
+    
+  - Device Mapper
+    
+  - Overlay
+    
+  - Overlay2
+  
+  
+### Docker compose
+
+`docker run -d --name=redis redis`
+
+`docker run -d --name=db postgres:9.4`
+
+`docker run -d --name=vote -p 5000:80 voting-app`
+
+`docker run -d --name=result -p 5001:80 result-app`
+
+`docker run -d --name=worker worker`
+
+#### links add so they can network together, its also depricated
+
+`docker run -d --name=redis redis`
+
+`docker run -d --name=db postgres:9.4`
+
+`docker run -d --name=vote -p 5000:80 --link redis:redis voting-app`
+
+`docker run -d --name=result --link db:db -p 5001:80 result-app`
+
+`docker run -d --name=worker  --link db:db --link redis:redis worker`
+
+#### To create a docker compose
+A docker compose file is made to package all images and containers needed to create and run a project.
+
+Usualy writen in yml
+
+Filename: docker-compose.yml
+
+```
+redis:
+	image: redis
+db:
+	image: postgres:9.4
+vote:
+	image: voting-app
+	ports:
+		- 5000:80
+	links:
+		- redis
+result:
+	image: result-app
+	ports:
+		- 5001:80
+	links:
+		- db
+worker:
+	image: worker
+	links:
+		- redis
+		- db
+```
+
+#### bring up the stack
+`docker-compose up`
+
+#### For a docker compose - build, we can add our own custome build image
+
+replase
+
+`image: voting-app`
+
+with
+
+`build: ./vote`
+
+#### Docker compose verion 2
+
+Docker compose verion 2 because version one had limitaions, links are not needed they can comunicate using service name. It also add a depends_on feature to saw what goes first
+
+Filename: docker-compose.yml
+
+```
+version: 2
+services:
+	redis:
+		image: redis
+	db:
+		image: postgres:9.4
+	vote:
+		image: voting-app
+		ports:
+			- 5000:80
+		depends_on:
+			- redis
+	result:
+		image: result-app
+		ports:
+			- 5001:80
+	worker:
+		image: worker
+```
+
+#### Docker compose verion 3
+
+Docker compose verion 3 which is the latest, its simaler like 2, but has support docker swarm.
+
+Filename: docker-compose.yml
+
+```
+version: 3
+services:
+	redis:
+		image: redis
+	db:
+		image: postgres:9.4
+	vote:
+		image: voting-app
+		ports:
+			- 5000:80
+	result:
+		image: result-app
+		ports:
+			- 5001:80
+	worker:
+		image: worker
+
+```
+
+
+#### Docker compose verion 2 creating 2 diffrent networks
+
+Filename: docker-compose.yml
+
+```
+version: 2
+services:
+	redis:
+		image: redis
+		networks:
+			- back-end
+	db:
+		image: postgres:9.4
+		networks:
+			- back-end
+	vote:
+		image: voting-app
+		ports:
+			- 5000:80
+		depends_on:
+			- redis
+		networks:
+			- front-end
+			- back-end
+	result:
+		image: result-app
+		ports:
+			- 5001:80
+		networks:
+			- front-end
+			- back-end
+	worker:
+		image: worker
+		networks:
+			- back-end
+
+networks:
+	front-end:
+	back-end:  
+```  
+
+
+### Private docker registry
+
+`docker login private-registry.io`
+
+`docker run private-registry.io/apps/internal-app`
+
+#### Deploy Private Registy
+
+`docker run -d -p 5000:5000 --name registry registry:2`
+
+`docker image tag my-image localhost:5000/my-image`
+
+`docker push localhost:5000/my-image`
+
+`docker pull localhost:5000/my-image`
+
+
+### Docker engine
+
+docker engine can be run remotly
+
+`docker -H=remote-docker-engine:2375`
+
+`docker -H=10.123.2.1:2375 run nginx`
+
+
+### Cgroups
+
+Can use to limit resorce
+
+`docker run --cpus=.5 ubuntu`
+
+`docker run --memory=100m ubuntu`
+
+### Cotainer orchestration - swarm
+
+- Docker Swarm
+- Kubernetes
+- Mensos
