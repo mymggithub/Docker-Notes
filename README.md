@@ -1,5 +1,9 @@
 # Docker-Notes
-Notes on docker
+Notes on docker written by Mark G
+
+[video 1](https://www.youtube.com/watch?v=zJ6WbK9zFpI)
+
+[video 2](https://www.youtube.com/watch?v=JprTjTViaEA) 
 
 Installing docker has an easy way using the convient script with linux
 
