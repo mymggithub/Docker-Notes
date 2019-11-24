@@ -95,7 +95,7 @@ If you get errors like I did, I recomend using.
 
 #### -Run and remove container after
 
-`docker run -rm docker-username/file-name`
+`docker run --rm docker-username/file-name`
 
 #### -Run Attach mode
 
