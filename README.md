@@ -127,6 +127,8 @@ another example
 
 `docker run -v "$PWD":/usr/src/widget_app python:3 python my_script.py`
 
+[another one](https://thenewstack.io/docker-basics-how-to-share-data-between-a-docker-container-and-host/)
+
 #### -Container details
 
 `docker inspect run-name`
