@@ -5,6 +5,8 @@ Notes on docker written by Mark G
 
 [video 2](https://www.youtube.com/watch?v=JprTjTViaEA) 
 
+[Learn Docker in 12 Minutes](https://www.youtube.com/watch?v=YFl2mCHdv24) 
+
 [dockerize python](https://runnable.com/docker/python/dockerize-your-python-application)
 
 Installing docker has an easy way using the convient script with linux
