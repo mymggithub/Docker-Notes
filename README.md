@@ -163,9 +163,10 @@ another example
 Example for flask:
 Filename: Dockerfile
 ```
-From Ubuntu
+From ubuntu
 RUN apt-get update
-RUN apt-get python
+RUN apt-get install python2 -y
+RUN apt-get install python-pip -y
 
 RUN pip install flask
 RUN pip install flask-mysql
@@ -189,6 +190,8 @@ Other: [WORKDIR](https://stackoverflow.com/questions/51066146/what-is-the-point-
 `docker build Dockerfile -t docker-username/my-custom-app` - this did not work for me like it said in the video
 
 `docker build -t docker-username/my-custom-app .` - Recomended
+
+`docker build .`
 
 #### -Push to public docker hub
 
