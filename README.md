@@ -59,6 +59,10 @@ Installing docker has an easy way using the convient script with linux
 
 `docker rm $(docker ps -q)`
 
+or
+
+`docker rm $(docker ps -q -a)`
+
 #### Remove exited containers
 
 `docker rm $(docker ps -a -f status=exited -q)`
