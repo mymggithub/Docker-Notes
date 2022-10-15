@@ -112,6 +112,10 @@ docker: Got permission denied while trying to connect to the Docker daemon socke
 
 `docker run docker-username/file-name`
 
+#### -Run ubuntu
+
+`docker run -it ubuntu`
+
 #### -Execute a command
 
 `docker exec [provide name or ID] cat /etc/hosts`
