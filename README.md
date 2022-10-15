@@ -168,8 +168,8 @@ RUN apt-get update
 RUN apt-get install python2 -y
 RUN apt-get install python-pip -y
 
-RUN pip install flask
-RUN pip install flask-mysql
+RUN pip2 install flask
+RUN pip2 install flask-mysql
 
 COPY . /opt/source-code
 
