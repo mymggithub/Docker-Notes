@@ -35,13 +35,13 @@ Installing docker has an easy way using the convient script with linux
 
 `docker start [provide name or ID]`
 
-#### -Stop a container
-
-`docker stop [provide name or ID]`
-
 #### Accessing the Docker containers
 
 `docker exec -it [provide name or ID] /bin/bash`
+
+#### -Stop a container
+
+`docker stop [provide name or ID]`
 
 #### Stop all containers
 
